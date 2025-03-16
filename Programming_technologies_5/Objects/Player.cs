@@ -10,6 +10,7 @@ namespace Programming_technologies_5.Objects
     class Player : BaseObject
     {
         public Action<Marker> OnMarkerOverlap;
+        public Action<GreenCircle> OnGreenCircleOverlap;
         public float vX, vY;
         public Player(float x, float y, float angle) : base(x, y, angle)
         {
@@ -33,7 +34,6 @@ namespace Programming_technologies_5.Objects
         }
         public override GraphicsPath GetGraphicsPath()
         {
-            // пока возвращаем пустую форму
             var path = base.GetGraphicsPath();
             path.AddEllipse(-15, -15, 30, 30);
             return path;
@@ -46,6 +46,11 @@ namespace Programming_technologies_5.Objects
             {
                 OnMarkerOverlap(obj as Marker);
             }
+            if (obj is GreenCircle greenCircle)
+            {
+                OnGreenCircleOverlap?.Invoke(greenCircle);
+            }
+
         }
 
 

@@ -32,6 +32,7 @@
             pbMain = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
             txtLog = new RichTextBox();
+            showScore = new Label();
             ((System.ComponentModel.ISupportInitialize)pbMain).BeginInit();
             SuspendLayout();
             // 
@@ -39,7 +40,7 @@
             // 
             pbMain.Location = new Point(12, 12);
             pbMain.Name = "pbMain";
-            pbMain.Size = new Size(776, 426);
+            pbMain.Size = new Size(589, 426);
             pbMain.TabIndex = 0;
             pbMain.TabStop = false;
             pbMain.Paint += pbMain_Paint;
@@ -53,23 +54,33 @@
             // 
             // txtLog
             // 
-            txtLog.Location = new Point(588, 12);
+            txtLog.Location = new Point(600, 12);
             txtLog.Name = "txtLog";
-            txtLog.Size = new Size(200, 426);
+            txtLog.Size = new Size(188, 426);
             txtLog.TabIndex = 1;
             txtLog.Text = "";
+            // 
+            // showScore
+            // 
+            showScore.AutoSize = true;
+            showScore.Location = new Point(544, 15);
+            showScore.Name = "showScore";
+            showScore.Size = new Size(0, 15);
+            showScore.TabIndex = 2;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(showScore);
             Controls.Add(txtLog);
             Controls.Add(pbMain);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pbMain).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -77,5 +88,6 @@
         private PictureBox pbMain;
         private System.Windows.Forms.Timer timer1;
         private RichTextBox txtLog;
+        private Label showScore;
     }
 }

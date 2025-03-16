@@ -4,14 +4,17 @@ namespace Programming_technologies_5
 {
     public partial class Form1 : Form
     {
-        MyRectangle myRect; // создадим поле под наш пр€моугольник
+        MyRectangle myRect;
         List<BaseObject> objects = new();
         Player player;
         Marker marker;
+        GreenCircle GreenCircle;
 
         public Form1()
         {
             InitializeComponent();
+
+            int score = 0;
 
             player = new Player(pbMain.Width / 2, pbMain.Height / 2, 0);
             player.OnOverlap += (p, obj) =>
@@ -25,13 +28,32 @@ namespace Programming_technologies_5
                 marker = null;
             };
 
+            player.OnGreenCircleOverlap += (gc) =>
+            {
+                var rand = new Random();
+                gc.X = rand.Next(pbMain.Width);
+                gc.Y = rand.Next(pbMain.Height);
+
+                score++;
+                showScore.Text = $"ќчки: {score}";
+            };
+
+
+            var rand = new Random();
+            for (int i = 0; i < 2; i++)
+            {
+                var greenCircle = new GreenCircle(rand.Next(pbMain.Width), rand.Next(pbMain.Height), 0);
+                objects.Add(greenCircle);
+            }
+
+
+
+
             marker = new Marker(pbMain.Width / 2 + 50, pbMain.Height / 2 + 50, 0);
+            GreenCircle = new GreenCircle(200, 200, 0);
             objects.Add(marker);
             objects.Add(player);
-            objects.Add(new MyRectangle(50, 50, 0));
-            objects.Add(new MyRectangle(100, 100, 45));
-
-            //myRect = new MyRectangle(100, 100, 45); // создать экземпл€р класса
+            objects.Add(GreenCircle);
         }
 
         private void pbMain_Paint(object sender, PaintEventArgs e)
