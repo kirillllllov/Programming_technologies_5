@@ -49,8 +49,14 @@ namespace Programming_technologies_5
                     gc.RelocateAndReset(rand);
                 };
 
+                greenCircle.OnCounterZero += (gc) =>
+                {
+                    gc.RelocateAndReset(rand);
+                };
+
                 objects.Add(greenCircle);
             }
+
 
 
 
