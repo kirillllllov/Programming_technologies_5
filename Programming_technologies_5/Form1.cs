@@ -33,27 +33,35 @@ namespace Programming_technologies_5
                 var rand = new Random();
                 gc.X = rand.Next(pbMain.Width);
                 gc.Y = rand.Next(pbMain.Height);
-
+                gc.RelocateAndReset(rand); // Перемещение и сброс размера
                 score++;
                 showScore.Text = $"Очки: {score}";
             };
 
 
             var rand = new Random();
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 5; i++)
             {
                 var greenCircle = new GreenCircle(rand.Next(pbMain.Width), rand.Next(pbMain.Height), 0);
+
+                greenCircle.OnSizeZero += (gc) =>
+                {
+                    gc.RelocateAndReset(rand);
+                };
+
                 objects.Add(greenCircle);
             }
 
 
 
 
+
+
             marker = new Marker(pbMain.Width / 2 + 50, pbMain.Height / 2 + 50, 0);
-            GreenCircle = new GreenCircle(200, 200, 0);
+            
             objects.Add(marker);
             objects.Add(player);
-            objects.Add(GreenCircle);
+       
         }
 
         private void pbMain_Paint(object sender, PaintEventArgs e)

@@ -38,7 +38,7 @@
             // 
             // pbMain
             // 
-            pbMain.Location = new Point(12, 12);
+            pbMain.Location = new Point(12, 15);
             pbMain.Name = "pbMain";
             pbMain.Size = new Size(589, 426);
             pbMain.TabIndex = 0;
@@ -54,7 +54,7 @@
             // 
             // txtLog
             // 
-            txtLog.Location = new Point(600, 12);
+            txtLog.Location = new Point(598, 15);
             txtLog.Name = "txtLog";
             txtLog.Size = new Size(188, 426);
             txtLog.TabIndex = 1;
@@ -72,7 +72,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(793, 450);
             Controls.Add(showScore);
             Controls.Add(txtLog);
             Controls.Add(pbMain);
